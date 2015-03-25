@@ -1,0 +1,79 @@
+.gmema-widget {
+    font-size: 13px;
+    color: #000000;
+}
+.gmema-widget label {
+    width: 100%; 
+    float:left;
+    color: #b94a48; 
+}
+
+.gmema-widget label span.required {
+    color:#b94a48
+}
+
+.gmema-widget .form-group {
+    float:left;
+    width:100%;
+    margin-bottom:10px;
+}
+
+.gmema-widget input,
+.gmema-widget textarea,
+.gmema-widget select {
+    font-size: 13px;
+    color: #000000;
+    outline:none; 
+    resize:none;
+    width:100%;
+    float:left;
+    padding: 5px;
+    border: 1px solid #d4d0ba;
+    font-family: inherit;
+}
+
+.gmema-widget input[type=submit], 
+.gmema-widget button[type=submit] {
+    cursor:pointer;
+    border: 1px solid #d4d0ba;
+    padding: 5px;
+}
+
+.gmema-widget .pull-right {
+    float:right;
+    margin-right:0px;
+}
+
+.gmema-widget .pull-left {
+    float:left;
+    margin-left:0px;
+}
+
+.gmema-widget .clearfix {
+    clear:both;
+}
+
+.gmema-widget .error {
+    font-size:11px;
+    color:#b94a48;
+}
+.gmema-widget .form-group.error {
+    font-size: 13px;
+    color: #b94a48;
+}
+.gmema-widget .form-group.error input[type=text],
+.gmema-widget .form-group.error select,
+.gmema-widget .form-group.error textarea {
+    border: 1px solid #b94a48;
+    background: #f2dede;
+}
+
+.gmema-widget input:focus,
+.gmema-widget textarea:focus,
+.gmema-widget select:focus {
+    border: 1px solid #d4d0ba;
+}
+
+.gmema-widget .message {
+    color: #b94a48;
+}
