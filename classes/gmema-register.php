@@ -762,25 +762,6 @@ function gmema_subscribe_callback() {
     )));
 }
 
-// admin notice if cache folder not writable.
-function gmema_admin_notice() {
-    global $pagenow;
-    if ($pagenow != 'widgets.php') {
-        return;
-    }
-    if (is_writable($cacheDir = GMEMA_DIR . '/lib/GloboMailerApi/Cache/data/cache')) {
-        return;
-    }
-    ?>
-    <div class="error">
-        <p><?php _e('Permissions error!', 'gmema'); ?></p>
-        <p><?php _e('The directory "<strong>'.$cacheDir.'</strong>" must be writable by the web server (chmod -R 0777)!', 'gmema'); ?></p>
-        <p><?php _e('Please fix this error now.', 'gmema'); ?></p>
-    </div>
-	<?php
-}
-add_action('admin_notices', 'gmema_admin_notice');
-
 // small function to generate our fields table.
 function gmema_generate_fields_table(array $freshFields = array(), $fieldName, array $listSelectedFields = array()) {
     ?>
