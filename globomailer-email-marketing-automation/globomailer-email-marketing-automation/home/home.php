@@ -4,10 +4,10 @@
 <link rel="stylesheet" media="screen" type="text/css" href="<?php echo GMEMA_URL; ?>css/bootstrap.css" />
 <link rel="stylesheet" media="screen" type="text/css" href="<?php echo GMEMA_URL; ?>css/fontawesome/css/font-awesome.css" />
 <div id="wpbody">
-	<div tabindex="0" aria-label="Main content" id="wpbody-content">
+	<div id="wpbody-content">
 		<input type="hidden" id="cur_refer_url" value="<?php echo GMEMA_URL; ?>?page=gmema-settings">
 			<div class="metabox-prefs" id="screen-meta">
-				<div aria-label="Contextual Help Tab" tabindex="-1" class="hidden no-sidebar" id="contextual-help-wrap">
+				<div class="hidden no-sidebar" id="contextual-help-wrap">
 					<div id="contextual-help-back"></div>
 					<div id="contextual-help-columns">
 						<div class="contextual-help-tabs">
@@ -19,8 +19,7 @@
 					</div>
 			            <div class="box-border-box container-fluid" id="wrap">
 	                <h2><img src="<?php echo GMEMA_URL ?>img/logo-300x76.png" id="logo-img"></h2>
-	                
-	                <?php
+					<?php
 						$gmema_errors = array();
 						$gmema_success = '';
 						$gmema_error_found = FALSE;
@@ -60,10 +59,10 @@
 						
 							
 						// Form submitted, check the data
-						if (isset($_POST['gmema_form_submit']) && $_POST['gmema_form_submit'] == 'yes' && is_admin())
+						if (isset($_POST['gmema_form_submit']) && $_POST['gmema_form_submit'] == 'yes')
 						{
-							//	Just security thingy that wordpress offers us
-							//check_admin_referer('gmema_form_edit');
+							//Just security thingy that wordpress offers us
+							check_admin_referer('gmema_form_edit');
 							
 							$form['gmema_c_publickey'] = isset($_POST['gmema_c_publickey']) ? $_POST['gmema_c_publickey'] : '';
 							if ($form['gmema_c_publickey'] == '')
@@ -127,13 +126,12 @@
 	                    </div>
 	                    <div class="panel-body">
 	                        <div class="col-md-9 row">
-	                            <?php
+							<?php
 	                            if ($gmema_error_found == TRUE && isset($gmema_errors[0]) == TRUE)
 								{
 									?>
 										<div class="alert alert-danger" id="failure-alert"><?php echo $gmema_errors[0]; ?></div>
-										
-									<?php
+								<?php
 								}
 								if ($gmema_error_found == FALSE && strlen($gmema_success) > 0)
 								{
@@ -158,6 +156,7 @@
 	                                    <p class="col-md-12 row"><input type="text" placeholder="Public Key" style="margin-top: 10px;" name="gmema_c_publickey" class="col-md-10" id="sib_access_key"></p>
 	                                    <p class="col-md-12 row"><input name="gmema_c_privatekey" type="text" placeholder="Private Key" style="margin-top: 10px;" class="col-md-10" id="sib_access_key"></p>
 	                                    <p class="col-md-12 row"><button class="col-md-4 btn btn-primary" id="sib_validate_btn" type="submit" name="submit"><span class="sib-spin" style="display: none;"><i class="fa fa-circle-o-notch fa-spin fa-lg"></i>&nbsp;&nbsp;</span><?php echo $savetext; ?></button></p>
+	                                    <?php wp_nonce_field('gmema_form_edit'); ?>
 	                                    </form>
 	                                </div>
 	                            <p></p>

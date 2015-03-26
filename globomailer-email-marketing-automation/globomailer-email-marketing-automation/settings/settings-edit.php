@@ -8,8 +8,9 @@ $gmema_error_found = FALSE;
 	
 $result = gmema_cls_settings::gmema_setting_count(1);
 if ($result != '1')
-{
-	?><div class="error fade"><p><strong><?php _e('Oops, selected details doesnt exist.', GMEMA_TDOMAIN); ?></strong></p></div><?php
+{ 
+	?><div class="error fade"><p><strong><?php _e('Oops, selected details doesnt exist.', GMEMA_TDOMAIN); ?></strong></p></div>
+	<?php
 	$form = array(
 		'gmema_c_id' => '',
 		'gmema_c_list' => '',
@@ -44,6 +45,9 @@ else
 // Form submitted, check the data
 if (isset($_POST['gmema_form_submit']) && $_POST['gmema_form_submit'] == 'yes')
 {
+	//	Just security thingy that wordpress offers us
+	check_admin_referer('gmema_form_edit');
+	
 	$form['gmema_c_list'] = isset($_POST['gmema_c_list']) ? $_POST['gmema_c_list'] : '';
 	$form['transact'] = isset($_POST['transact']) ? $_POST['transact'] : '';
 	$form['transact_msg'] = isset($_POST['transact_msg']) ? $_POST['transact_msg'] : '';
@@ -116,7 +120,7 @@ if ($gmema_error_found == FALSE && strlen($gmema_success) > 0)
 				<p class="description"><?php _e('Check this field if you want to send the trnsactional email from the API.', GMEMA_TDOMAIN); ?></p></label>
 			</th>
 			<td align="left">
-				<input type="checkbox" <?php echo (isset($form['transact']) && $form['transact'] == 'SEND') ? 'checked="checked"' : ''; ?> value="SEND" name="transact">
+				<input type="checkbox"<?php echo (isset($form['transact']) && $form['transact'] == 'SEND') ? ' checked="checked"' : ''; ?> value="SEND" name="transact">
 			</td>
 		</tr>
 		<tr>
@@ -135,7 +139,7 @@ if ($gmema_error_found == FALSE && strlen($gmema_success) > 0)
 			</th>
 			<td>
 			
-				<?
+				<?php
 				$myData = array();
 				$endpoint_lists = new GloboMailerApi_Endpoint_Lists();
 				$response = $endpoint_lists->getLists($pageNumber = 1, $perPage = 100);
@@ -168,11 +172,11 @@ if ($gmema_error_found == FALSE && strlen($gmema_success) > 0)
 				<p class="description"><?php _e('Please select filds that you want to include in subscription form.', GMEMA_TDOMAIN); ?></p></label>
 			</th>
 			<td align="left">
-				<input type="checkbox" <?php echo (isset($form['selected_fields']) && in_array('EMAIL',$form['selected_fields'])) ? 'checked="checked"' : ''; ?> value="EMAIL" name="selected_fields[]">
+				<input type="checkbox"<?php echo (isset($form['selected_fields']) && in_array('EMAIL',$form['selected_fields'])) ? ' checked="checked"' : ''; ?> value="EMAIL" name="selected_fields[]">
 				<?php _e('Email', GMEMA_TDOMAIN); ?><br />
-				<input type="checkbox" <?php echo (isset($form['selected_fields']) &&in_array('FNAME',$form['selected_fields'])) ? 'checked="checked"' : ''; ?> value="FNAME" name="selected_fields[]">
+				<input type="checkbox"<?php echo (isset($form['selected_fields']) &&in_array('FNAME',$form['selected_fields'])) ? ' checked="checked"' : ''; ?> value="FNAME" name="selected_fields[]">
 				<?php _e('First name', GMEMA_TDOMAIN); ?><br />
-            	<input type="checkbox" <?php echo (isset($form['selected_fields']) &&in_array('LNAME',$form['selected_fields'])) ? 'checked="checked"' : ''; ?> value="LNAME" name="selected_fields[]">
+            	<input type="checkbox"<?php echo (isset($form['selected_fields']) &&in_array('LNAME',$form['selected_fields'])) ? ' checked="checked"' : ''; ?> value="LNAME" name="selected_fields[]">
             	<?php _e('Last name', GMEMA_TDOMAIN); ?>
             </td>
 		</tr>

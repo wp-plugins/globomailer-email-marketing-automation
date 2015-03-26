@@ -149,7 +149,7 @@ class gmema_cls_registerhook
 				
 				$reciepients = implode(",", $subscriber_list);
 				$to = $reciepients;
-				$subject = $post->title;
+				$subject = $post->post_title;
 				$content = str_replace("\r\n", "<br />", $post->post_content);
 				wp_mail($to, $subject, $content, $headers);
 			}	
@@ -342,9 +342,9 @@ class gmema_widget_register extends WP_Widget
         ?>
         <div class="gmema-widget" data-ajaxurl="<?php echo admin_url('admin-ajax.php'); ?>">
             <div class="message"></div>
-            <?php echo $form;?>
+        	<?php echo $form;?>
         </div>
-        <?php
+		<?php
         echo $args['after_widget'];
     }
     
@@ -431,9 +431,9 @@ class gmema_widget_register extends WP_Widget
         <div class="lists-container" style="<?php echo !empty($freshFields) ? 'display:block':'display:none';?>; margin:0; float:left; width:100%">
             <label for="<?php echo $this->get_field_id('list_uid'); ?>"><strong><?php _e('Select a list:'); ?></strong></label> 
             <select data-listuid="<?php echo esc_attr($listUid); ?>" data-fieldname="<?php echo $this->get_field_name('selected_fields');?>" class="widefat gmema-mail-lists-dropdown" id="<?php echo $this->get_field_id('list_uid'); ?>" name="<?php echo $this->get_field_name('list_uid'); ?>">
-            <?php foreach ($freshLists as $list) { ?>
+			<?php foreach ($freshLists as $list) { ?>
             <option value="<?php echo $list['list_uid'];?>"<?php if ($listUid == $list['list_uid']) { echo ' selected="selected"';}?>><?php echo $list['name'];?></option>
-            <?php } ?>
+			<?php } ?>
             </select>
             <br class="clear"/>
             <br class="clear"/>
@@ -442,7 +442,7 @@ class gmema_widget_register extends WP_Widget
         <div class="fields-container" style="<?php echo !empty($listUid) ? 'display:block':'display:none';?>; margin:0; float:left; width:100%">
             <label for="<?php echo $this->get_field_id('selected_fields'); ?>"><strong><?php _e('Fields:'); ?></strong></label> 
             <div class="table-container" style="width:100%;max-height:200px; overflow-y: scroll">
-                <?php gmema_generate_fields_table($freshFields, $this->get_field_name('selected_fields'), $listSelectedFields);?>
+			<?php gmema_generate_fields_table($freshFields, $this->get_field_name('selected_fields'), $listSelectedFields); ?>
             </div>
             <br class="clear">
             <div style="float: right;">
@@ -457,7 +457,7 @@ class gmema_widget_register extends WP_Widget
         </div>
         
         <hr />
-        <?php 
+		<?php 
     }
     
     /**
@@ -777,7 +777,7 @@ function gmema_admin_notice() {
         <p><?php _e('The directory "<strong>'.$cacheDir.'</strong>" must be writable by the web server (chmod -R 0777)!', 'gmema'); ?></p>
         <p><?php _e('Please fix this error now.', 'gmema'); ?></p>
     </div>
-    <?php
+	<?php
 }
 add_action('admin_notices', 'gmema_admin_notice');
 
@@ -791,16 +791,16 @@ function gmema_generate_fields_table(array $freshFields = array(), $fieldName, a
             <th align="left"><?php echo  __('Label', 'gmema');?></th>
         </thead>
         <tbody>
-            <?php foreach ($freshFields as $field) { ?>
+			<?php foreach ($freshFields as $field) { ?>
             <tr>
                 <td width="40" align="left"><input name="<?php echo $fieldName; ?>[]" value="<?php echo $field['tag']?>" type="checkbox"<?php echo empty($listSelectedFields) || in_array($field['tag'], $listSelectedFields) ? ' checked="checked"':''?>/></td>
                 <td width="60" align="left"><?php echo $field['required'];?></td>
                 <td align="left"><?php echo $field['label'];?></td>
             </tr>
-            <?php } ?>
-        </tbody>
+			<?php } ?>
+			</tbody>
     </table>
-    <?php
+	<?php
 }
 
 ?>

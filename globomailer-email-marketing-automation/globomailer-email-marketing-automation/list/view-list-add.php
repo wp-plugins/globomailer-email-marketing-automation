@@ -1,18 +1,4 @@
-<?php if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); } 
-
-// Connect GloboMailer Api
-
-if($_SERVER['HTTP_HOST'] == 'localhost'){
-	require_once GMEMA_DIR_AUTOLODER_LOCAL;
-	require_once GMEMA_DIR_SETUP_LOCAL;
-}else{
-	require_once GMEMA_DIR_AUTOLODER_LIVE;
-	require_once GMEMA_DIR_SETUP_LIVE;
-}
-GloboMailerApi_Autoloader::register();
-$setting_data = gmema_cls_settings::gmema_setting_select(1);
-setConfig($setting_data['gmema_c_publickey'],$setting_data['gmema_c_privatekey']);
-
+<?php if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); }
 ?>
 <div class="wrap">
 <?php
@@ -216,7 +202,7 @@ if ($gmema_error_found == FALSE && isset($gmema_success[0]) == TRUE)
 	<div class="updated fade">
 	<p><strong>
 	<?php echo $gmema_success; ?>
-	<a href="<?php echo GMEMA_ADMINURL; ?>?page=gmema-view-list"><?php _e('Click here', GMEMA_TDOMAIN); ?></a> <?php _e(' to view the details', GMEMA_TDOMAIN); ?>
+	<a href="<?php echo GMEMA_ADMINURL; ?>?page=gmema-view-list"><?php _e('Click here', GMEMA_TDOMAIN); ?></a><?php _e(' to view the details', GMEMA_TDOMAIN); ?>
 	</strong></p>
 	</div>
 	<?php
@@ -413,7 +399,7 @@ if ($gmema_error_found == FALSE && isset($gmema_success[0]) == TRUE)
         <input name="publish" lang="publish" class="button add-new-h2" value="<?php _e('Submit', GMEMA_TDOMAIN); ?>" type="submit" />
         <input name="publish" lang="publish" class="button add-new-h2" onclick="_gmema_redirect()" value="<?php _e('Cancel', GMEMA_TDOMAIN); ?>" type="button" />
       </p>
-	  <?php wp_nonce_field('gmema_form_add'); ?>
+	<?php wp_nonce_field('gmema_form_add'); ?>
     </form>
 </div>
 </div>
