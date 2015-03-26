@@ -12,9 +12,11 @@ if($_SERVER['HTTP_HOST'] == 'localhost'){
 	require_once GMEMA_DIR_AUTOLODER_LIVE;
 	require_once GMEMA_DIR_SETUP_LIVE;
 }
-GloboMailerApi_Autoloader::register();
-$setting_data = gmema_cls_settings::gmema_setting_select(1);
-setConfig($setting_data['gmema_c_publickey'],$setting_data['gmema_c_privatekey']);
+if(!function_exists('register')){
+	GloboMailerApi_Autoloader::register();
+	$setting_data = gmema_cls_settings::gmema_setting_select(1);
+	if(isset($setting_data['gmema_c_publickey'])){
+		setConfig($setting_data['gmema_c_publickey'],$setting_data['gmema_c_privatekey']);	
+	}	
+}
 ?>
-
-

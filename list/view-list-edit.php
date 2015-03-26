@@ -237,7 +237,7 @@ $form = array(
 <script language="javaScript" src="<?php echo GMEMA_URL; ?>list/view-list.js"></script>
 <div class="form-wrap">
 	<div id="icon-plugins" class="icon32"></div>
-	<h2><?php _e(GMEMA_PLUGIN_DISPLAY, GMEMA_TDOMAIN); ?></h2>
+	<h2><img src="<?php echo GMEMA_URL ?>img/logo-300x76.png" id="logo-img" width="154px"></h2>
 	<form name="form_addemail" method="post" action="#" onsubmit="return _gmema_addemail()"  >
       <h3 class="title"><?php _e('Edit List', GMEMA_TDOMAIN); ?></h3>
       <table class="form-table">

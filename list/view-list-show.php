@@ -42,7 +42,7 @@ if (isset($_POST['frm_gmema_display']) && $_POST['frm_gmema_display'] == 'yes')
 	?>
 
   <div id="icon-plugins" class="icon32"></div>
-  <h2><?php _e(GMEMA_PLUGIN_DISPLAY, GMEMA_TDOMAIN); ?></h2>
+  <h2><img src="<?php echo GMEMA_URL ?>img/logo-300x76.png" id="logo-img" width="154px"></h2>
   <div class="tool-box">
   <h3><?php _e('View Lists', GMEMA_TDOMAIN); ?> 
   <a class="add-new-h2" href="<?php echo GMEMA_ADMINURL; ?>?page=gmema-view-list&amp;ac=add"><?php _e('Add New', GMEMA_TDOMAIN); ?></a></h3>

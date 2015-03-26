@@ -109,7 +109,7 @@ if ($gmema_error_found == FALSE && strlen($gmema_success) > 0)
 </style>
 <div class="form-wrap">
 	<div id="icon-plugins" class="icon32"></div>
-	<h2><?php _e(GMEMA_PLUGIN_DISPLAY, GMEMA_TDOMAIN); ?></h2>
+	<h2><img src="<?php echo GMEMA_URL ?>img/logo-300x76.png" id="logo-img" width="154px"></h2>
 	<h3><?php _e('Settings', GMEMA_TDOMAIN); ?></h3>
 	<form name="gmema_form" method="post" action="#" >
 	<table class="form-table">
