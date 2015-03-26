@@ -1,21 +1,5 @@
 <?php if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); } ?>
-<?php
 
-// Connect GloboMailer Api
-// Connect GloboMailer Api
-
-if($_SERVER['HTTP_HOST'] == 'localhost'){
-	require_once GMEMA_DIR_AUTOLODER_LOCAL;
-	require_once GMEMA_DIR_SETUP_LOCAL;
-}else{
-	require_once GMEMA_DIR_AUTOLODER_LIVE;
-	require_once GMEMA_DIR_SETUP_LIVE;
-}
-GloboMailerApi_Autoloader::register();
-$setting_data = gmema_cls_settings::gmema_setting_select(1);
-setConfig($setting_data['gmema_c_publickey'],$setting_data['gmema_c_privatekey']);
-
-?>
 <script src="<?php echo GMEMA_URL; ?>list/view-list.js"></script>
 
 <?php
@@ -43,7 +27,7 @@ if (isset($_POST['frm_gmema_display']) && $_POST['frm_gmema_display'] == 'yes')
 	<?php
 		if ($gmema_error_found == TRUE && $gmema_errors)
 		{
-			?><div class="error fade"><p><strong><?php echo $gmema_errors; ?></strong></p></div> <?php
+			?><div class="error fade"><p><strong><?php echo $gmema_errors; ?></strong></p></div><?php
 		}
 		if ($gmema_error_found == FALSE && $gmema_success)
 		{
@@ -92,7 +76,7 @@ if (isset($_POST['frm_gmema_display']) && $_POST['frm_gmema_display'] == 'yes')
           </tr>
         </tfoot>
         <tbody>
-          <?php 
+		<?php 
 			if(isset($myData['data']['records']))
 			{
 				foreach ($myData['data']['records'] as $data)
@@ -131,7 +115,7 @@ if (isset($_POST['frm_gmema_display']) && $_POST['frm_gmema_display'] == 'yes')
         </tbody>
       </table>
       
-      <?php wp_nonce_field('gmema_form_show'); ?>
+	<?php wp_nonce_field('gmema_form_show'); ?>
 	<input type="hidden" name="frm_gmema_display" value="yes"/> 
 	<div style="padding-top:10px;"></div>
     <div class="tablenav">

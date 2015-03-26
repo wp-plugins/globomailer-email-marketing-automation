@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: GloboMailerEMA
+Plugin Name: Globomailer Email Marketing Automation
 Plugin URI: http://www.globomailer.com/plugins/wordpress?pk_campaign=wordpress_plugin&pk_kwd=plugins-page
 Description: Connect your Wordpress Install with GloboMailer and create email marketing automation. Also use your GloboMailer account and send transactional emails instead of the default emailing system Wordpress uses. 
 
@@ -25,7 +25,7 @@ require_once(dirname(__FILE__).DIRECTORY_SEPARATOR.'classes'.DIRECTORY_SEPARATOR
 
 function gmema_textdomain() 
 {
-	  load_plugin_textdomain( 'GloboMailerEMA' , false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	load_plugin_textdomain( 'GloboMailerEMA' , false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
 add_action('plugins_loaded', 'gmema_textdomain');
 ?>
