@@ -96,7 +96,7 @@ In order to create a signup form, you have to :
 
 
 == Changelog ==
-= 1.0.1 - 20/02/2015 =
+= 1.0.1 =
 * Fix - fix some issues.
 
 = 1.0.0 =
