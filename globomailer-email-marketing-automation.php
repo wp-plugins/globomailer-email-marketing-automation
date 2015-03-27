@@ -5,7 +5,7 @@ Plugin URI: http://www.globomailer.com/plugins/wordpress?pk_campaign=wordpress_p
 Description: Connect your Wordpress Install with GloboMailer and create email marketing automation. Also use your GloboMailer account and send transactional emails instead of the default emailing system Wordpress uses. 
 
 Add subscription widgets. Using the subscription widget, you can generate a subscription form based on your mail list definition. You also have full control over the generated form, so you can continue changing it until it fits your needs. Also you can use shortcodes within the WYSIWYG editor. For extreme customization of your webforms we have also included a php code generator so you can add your webforms on any location of your theme.
-Version: 1.0
+Version: 1.0.1
 Author: Incite Minds Ltd <support@globomailer.com>
 Author URI: http://www.globomailer.com/?pk_campaign=wordpress_plugin&pk_kwd=plugins-page
 License: MIT http://opensource.org/licenses/MIT

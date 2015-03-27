@@ -96,6 +96,6 @@ In order to create a signup form, you have to :
 
 
 == Changelog ==
-= 1.0.0 =
+= 1.0.1 =
 * Initial Release
 
