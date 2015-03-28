@@ -153,8 +153,8 @@
 	                                    <form name="gmema_form" method="post" action="#" onsubmit="return _gmema_submit()"  >
 	                                    <input type="hidden" name="gmema_form_submit" value="yes"/>
 										<input type="hidden" name="gmema_c_id" id="gmema_c_id" value="<?php echo $form['gmema_c_id']; ?>"/>
-	                                    <p class="col-md-12 row"><input type="text" placeholder="Public Key" style="margin-top: 10px;" name="gmema_c_publickey" class="col-md-10" id="sib_access_key"></p>
-	                                    <p class="col-md-12 row"><input name="gmema_c_privatekey" type="text" placeholder="Private Key" style="margin-top: 10px;" class="col-md-10" id="sib_access_key"></p>
+	                                    <p class="col-md-12 row"><input type="text" placeholder="Public Key" style="margin-top: 10px;" name="gmema_c_publickey" class="col-md-10" id="sib_access_key" value="<?php echo $form['gmema_c_publickey']; ?>"></p>
+	                                    <p class="col-md-12 row"><input name="gmema_c_privatekey" type="text" placeholder="Private Key" style="margin-top: 10px;" class="col-md-10" id="sib_access_key" value="<?php echo $form['gmema_c_privatekey']; ?>"></p>
 	                                    <p class="col-md-12 row"><button class="col-md-4 btn btn-primary" id="sib_validate_btn" type="submit" name="submit"><span class="sib-spin" style="display: none;"><i class="fa fa-circle-o-notch fa-spin fa-lg"></i>&nbsp;&nbsp;</span><?php echo $savetext; ?></button></p>
 	                                    <?php wp_nonce_field('gmema_form_edit'); ?>
 	                                    </form>
